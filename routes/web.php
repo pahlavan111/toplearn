@@ -17,9 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/users', function () {
-    return 'hi users';
+
+Route::get('/home', function () {
+
+    $var = 'Behrooz'; 
+    return view('home', compact('var'));
 });
+
+
+
 
 // Route::get('/members/{id}','MembersControler@show')->name('members.show');
 
@@ -68,18 +74,22 @@ Route::get('/users', function () {
 //     });
 // });
 
-Route::domain('test.myapp.com')->group(function () {
+// Route::domain('test.myapp.com')->group(function () {
 
-    Route::get('/', function () {
-        return "hi";
-    });
-});
+//     Route::get('/', function () {
+//         return "hi";
+//     });
+// });
 
 
-Route::domain('{account}.myapp.com')->group(function(){
+// Route::domain('{account}.myapp.com')->group(function(){
      
-    Route::get('user/{id}', function($account, $id){
+//     Route::get('user/{id}', function($account, $id){
 
-    });
+//     });
+// });
+
+Route::fallback(function(){
+ return 'هیچ صفحه‌ای با این مشخصات وجود ندارد';
 });
 
