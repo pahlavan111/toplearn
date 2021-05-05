@@ -58,13 +58,28 @@ Route::get('/users', function () {
 //     });
 // });
 
-Route::group(['prefix' => 'dashboard'], function () {
-    Route::get('/', function () {
-        return 'dashboard';
-    });
+// Route::group(['prefix' => 'dashboard'], function () {
+//     Route::get('/', function () {
+//         return 'dashboard';
+//     });
 
-    Route::get('/menu', function () {
-        return 'dashboard/menu';
+//     Route::get('/menu', function () {
+//         return 'dashboard/menu';
+//     });
+// });
+
+Route::domain('test.myapp.com')->group(function () {
+
+    Route::get('/', function () {
+        return "hi";
+    });
+});
+
+
+Route::domain('{account}.myapp.com')->group(function(){
+     
+    Route::get('user/{id}', function($account, $id){
+
     });
 });
 
