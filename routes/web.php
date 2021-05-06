@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeControler;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\CrapIndex;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +20,13 @@ Route::get('/', function () {
 });
 
 
-Route::get('/home', function () {
-
-    $var = 'Behrooz'; 
-    return view('home', compact('var'));
-});
+Route::get('/home', 'HomeController@index');
 
 
+// Route::get('/home', function () {
+//     $var = 'Behrooz'; 
+//     return view('home', compact('var'));
+// });
 
 
 // Route::get('/members/{id}','MembersControler@show')->name('members.show');
